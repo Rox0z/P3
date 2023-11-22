@@ -93,9 +93,7 @@ public class RecursiveStringSort extends Sort
     private static void bogoSort(String[] a)
     {
         while (!isSorted(a))
-        {
             for (int i = 0; i < a.length; i++)
                 exchange(a, i, R.nextInt(a.length));
-        }
     }
 }
