@@ -36,14 +36,23 @@ public class Cordel implements Iterable<String>{
     {
         //todos os membros têm de ser inicializados, dado que foram declarados como final
         //lembrem-se que um nó folha não tem filhos.
-        //TODO: implement
+
+        this.left = null;
+        this.right = null;
+        this.leftLength = 0;
+        this.rightLength = 0;
+        this.string = s;
     }
 
     //Cria e inicializa um cordel que corresponde a um nó de concatenação (CONCAT)
     //e que concatena os dois cordéis recebidos
     public Cordel(Cordel left, Cordel right)
     {
-        //TODO: implement
+        this.left = left;
+        this.right = right;
+        this.leftLength = left.length();
+        this.rightLength = right.length();
+        this.string = null;
     }
 
     //Retorna o tamanho de um cordel, ou seja, o número de caracteres total guardado no cordel.

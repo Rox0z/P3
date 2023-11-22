@@ -61,7 +61,13 @@ public class RecursiveStringSort extends Sort
     //no entanto este método recebe uma Lista de Strings em vez de um Array de Strings
     public static void insertionSort(List<String> a)
     {
-        //TODO: implement
+        for (int i = 1; i < a.size(); i++) {
+            int prev = i-1;
+            while (prev >= 0 && less(a.get(prev+1), a.get(prev))) {
+                a.add(prev, a.remove(prev+1));
+                prev--;
+            }
+        }
     }
 
     public static Limits determineLimits(List<String> a, int characterIndex)
@@ -88,6 +94,23 @@ public class RecursiveStringSort extends Sort
     {
         //TODO: implement
     }
+
+    public static void main(String[] args)
+    {
+        List<String>a = new ArrayList<String>();
+        a.add("ola"); // 5
+        a.add("adeus"); // 0
+        a.add("cenas"); //1
+        a.add("coisas"); //2
+        a.add("outras"); // 6
+        a.add("mais"); // 4
+        a.add("zenos"); // 7
+        a.add("limbo"); // 3
+        // adeus, cenas, coisas, limbo, mais, ola, outras, zenos
+        insertionSort(a);
+        System.out.println(a);
+    }
+
 
     //  Bonus: tecnicamente o melhor e pior algoritmo de ordenação são o mesmo, o BogoSort e foda
     private static void bogoSort(String[] a)
