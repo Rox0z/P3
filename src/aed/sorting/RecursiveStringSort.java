@@ -89,7 +89,7 @@ public class RecursiveStringSort extends Sort
         //TODO: implement
     }
 
-    //  Bonus: tecnicamente o melhor e pior algoritmo de ordenação são o mesmo, o BogoSort
+    //  Bonus: tecnicamente o melhor e pior algoritmo de ordenação são o mesmo, o BogoSort e foda
     private static void bogoSort(String[] a)
     {
         while (!isSorted(a))
