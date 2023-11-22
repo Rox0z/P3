@@ -11,6 +11,12 @@ class Limits
     char minChar;
     char maxChar;
     int maxLength;
+
+    public Limits() {
+        this.minChar = Character.MAX_VALUE;
+        this.maxChar = Character.MIN_VALUE;
+        this.maxLength = 0;
+    }
 }
 
 public class RecursiveStringSort extends Sort
@@ -72,9 +78,17 @@ public class RecursiveStringSort extends Sort
 
     public static Limits determineLimits(List<String> a, int characterIndex)
     {
-        //TODO implement
-
-        return null;
+        Limits limits = new Limits();
+        for (String s : a) {
+            if (s.length() <= characterIndex) limits.minChar = Character.MIN_VALUE;
+            else {
+                char c = s.charAt(characterIndex);
+                if (c < limits.minChar) limits.minChar = c;
+                if (c > limits.maxChar) limits.maxChar = c;
+                if (s.length() > limits.maxLength) limits.maxLength = s.length();
+            }
+        }
+        return limits;
     }
 
     //ponto de entrada principal para o vosso algoritmo de ordenação
